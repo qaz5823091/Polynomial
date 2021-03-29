@@ -167,16 +167,36 @@ Polynomial operator*(double a, Polynomial b) {
 	return result;
 }
 
+void Polynomial::integral(){
+	for(int i=length; i>=0; i--){
+		if(int(factors[i]) == 0)
+			continue;
+			
+		factors[i+1]=factors[i]*(1.0/(1+i));
+	}
+	factors[0]=0;
+}
+
+void Polynomial::differential(){
+	for(int i=0;i<length;i++){
+		factors[i]=factors[i+1]*(i+1);
+	}
+}
+
 std::string Polynomial::getPolynomial() {
 	std::string result;
 	bool first = true;
 	for (int i=length-1;i>=0;i--) {
 		if (factors[i] == 0)
 			continue;
-
-		if (factors[i] > 0)
-			result += '+';
-		result += std::to_string(factors[i]) + "X^" + char(i + '0');
+		
+		if (factors[i] > 0) {
+			if (first)
+				first = false;
+			else
+				result += '+';
+		}
+		result += std::to_string(factors[i]) + "X^" + std::to_string(i);
 	}
 
 	return result;

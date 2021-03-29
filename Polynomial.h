@@ -27,6 +27,9 @@ class Polynomial {
 		friend Polynomial operator*(Polynomial , double);
 		friend Polynomial operator*(double, Polynomial );
 
+		void differential();
+		void integral();
+
 		std::string getPolynomial();
 		void print();
 };
