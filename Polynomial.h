@@ -2,10 +2,11 @@
 #define POLYNOMIAL_H
 
 #include <iostream>
+#include <vector>
 
 class Polynomial {
 	private:
-		double *factors;
+		std::vector<double> factors;
 
 	public:
 		Polynomial();
@@ -13,19 +14,19 @@ class Polynomial {
 		Polynomial(std::string);
 		~Polynomial();
 
-		Polynomial operator=(Polynomial );
+		Polynomial operator=(const Polynomial &);
 
-		friend Polynomial operator+(Polynomial , Polynomial );
-		friend Polynomial operator+(Polynomial , double);
-		friend Polynomial operator+(double, Polynomial );
+		friend Polynomial operator+(const Polynomial & , const Polynomial & );
+		friend Polynomial operator+(const Polynomial & , double);
+		friend Polynomial operator+(double, const Polynomial &);
 
-		friend Polynomial operator-(Polynomial , Polynomial );
-		friend Polynomial operator-(Polynomial , double);
-		friend Polynomial operator-(double, Polynomial );
+		friend Polynomial operator-(const Polynomial & , const Polynomial & );
+		friend Polynomial operator-(const Polynomial & , double);
+		friend Polynomial operator-(double, const Polynomial & );
 
-		friend Polynomial operator*(Polynomial , Polynomial );
-		friend Polynomial operator*(Polynomial , double);
-		friend Polynomial operator*(double, Polynomial );
+		friend Polynomial operator*(const Polynomial & , const Polynomial & );
+		friend Polynomial operator*(const Polynomial & , double);
+		friend Polynomial operator*(double, const Polynomial & );
 
 		void differential();
 		void integral();
