@@ -14,7 +14,7 @@ Polynomial::Polynomial(const Polynomial &temp) {
 	factors = temp.factors;
 }
 
-// parametrized constructor
+// parameterized constructor
 Polynomial::Polynomial(std::string poly) {
 	int pLength = poly.size();
 	int tempLength;
